@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function(){
     let readonlyModeOn = false
 
     //Adding tags after reloading page from locals storage
-    tagsArea.innerHTML = getTagsList(tagsArea)
+
+    tagsArea.innerHTML = getTagsList(tagsArea) || ''
 
     addButton.addEventListener('click', function(e){
 
@@ -65,8 +66,9 @@ function setTagsList(){
 }
 
 function getTagsList(tagsArea){
+   
     let tagsList = localStorage.getItem('tagsList')
 
-    return tagsList.split(',').join('')
+    return tagsList?.split(',').join('')
     
 }
